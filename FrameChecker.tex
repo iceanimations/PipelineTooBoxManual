@@ -1,0 +1,41 @@
+\section{FrameChecker}
+
+This tool lists all the render frames, lists the missing frames and bad
+frames. Missing frames are ones which are not rendered and the folder/director
+does not contain those frames. Bad frames are ones which are rendered but not
+properly. The criterion for bad frames is small size as compared to size of
+all the frames. The tool just notifies the user by listing bad frames that
+these frames have a very large variance in size as compared to other frames.
+Usually bad frames have a very small size. This indicates that these frames
+might not be properly rendered.
+
+\subsection*{Features}
+
+\begin{itemize}
+\item Lists missing frames
+\item Lists bad frames
+\item Makes the bad frame names hyperlinks to the actual files in  the file
+system
+\item User can right click on any of the frames and choose “check render
+frames” option from the context menu that appears to launch the “Frames
+Checker”.
+\end{itemize}
+
+\subsection*{Importance/Usage}
+
+“Frame Checker” got 100 hits during the month of August 2013
+
+\subsection*{Location/Access}
+
+\subsubsection*{Source code} 
+
+R:$\backslash$Pipe$\backslash$\_Repo$\backslash$Users$\backslash$Qurban$\backslash$src (frameChecker)
+
+\subsubsection*{Runable} 
+
+R:$\backslash$Pipe\_Repo$\backslash$Users$\backslash$Qurban$\backslash$applications$\backslash$runables$\backslash$frameChecker (frameChecker.bat)
+
+\subsubsection*{How to run}  
+
+Copy .bat file to your desktop or create shortcut to your desktop, double click it. You can also right click the any frame and select “check render frames” option (if you don’t see this option, please contact to Pipeline team).
+

@@ -1,0 +1,93 @@
+\chapter{Technical Info}
+
+\section{Installation}
+\label{sec:installation}
+
+\subsection{Requirements}
+
+The Pipeline tools are available to all employees of ICE Animations who have
+access to company intranet on the domain ICEANIMATIONS.
+
+The User needs to mount his "R:" to the location 
+\begin{quote}
+$\backslash$$\backslash$ice-sql$\backslash$Storage$\backslash$repository
+\end{quote}
+
+This is automatically done for all domain users using active directory user
+login policy.
+
+
+\subsubsection{Supported Platforms} 
+
+At the time of writing this document, the ICE Animations pipeline Toolbox has
+been tested only for the Windows OS and Maya 2014 platforms.
+
+
+\subsection{Remote Installation}
+
+This mode of installation requires administrator privileges. Installation of
+the Pipeline Toolbox can now be done remotely by running the following file
+using an account which has administrator status on all intended machines. One
+such account is \emph{ICEANIMATIONS$\backslash$Administrator}
+
+\begin{quote}
+R:$\backslash$Pipe\_Repo$\backslash$Projects$\backslash$TACTIC$\backslash$client\_batch$\backslash$run\_remote\_deployer.bat
+\end{quote}
+
+\subsection{User Installation}
+
+The ICE Menu inside Maya can be installed by copying the file named
+\emph{userSetup.mel} from the following location 
+\begin{quote}
+R:$\backslash$Pipe\_Repo$\backslash$Users$\backslash$Hussain$\backslash$utilities$\backslash$loader$\backslash$client
+\end{quote}
+into the users \emph{maya/scripts} folder or the
+\emph{maya/$<$MAYAVERSION$>$/scripts} in the \emph{My Documents} directory
+
+If the ICE Menu does not appear, remove any other files with the name
+\emph{userSetup.mel} from all the locations in the env variable
+\emph{\%MAYA\_SCRIPT\_PATH\%}
+
+The ICE Menu in Program Folders can be added by adding a shortcut to the
+start menu to the folder
+
+\begin{quote}
+R:$\backslash$Pipe\_Repo$\backslash$Users$\backslash$Qurban$\backslash$applications
+\end{quote}
+
+This makes available all the batch files which can be used to run a particular
+standalone tool in the toolbox.
+
+
+\section{Distribution Mechanism}
+
+Before distribution of the tools; the first question is whether the tool will
+run from within Maya or as an independent desktop application. If the tool is
+required to run from within Maya, then the tool is deployed as item in
+drop-down menu in the main menu of Maya under “ICE Scripts” menu, so the user
+has an easy access to the tools when needed.
+
+In order to create “ICE Scripts” menu in Maya, a “Mel” script in needed which
+is executed each time the Maya is launched by the user. This script reads a
+predefined directory from a known location in the file system and creates a
+menu named “ICE Scripts” containing the names of the sub-directories within
+it. Names of these sub-directories represent the departments in the company.
+Each sub-directory contains tools (Mel and/or Python scripts) which belong to
+the department sub-directory represents. These tools are either based on a
+single file or single file contains the script to import and run a complete
+software package from a specified directory. The location for the directory
+which contain the scripts is R:/mel\_scripts and the location for the directory
+which contains complete software packages is R:/Python\_Scripts/plugins.
+
+The script which create “ICE Scripts” menu in Maya can be found in
+R:/Pipe\_Repo/Users/Hussain/utilities/loader/client; as userSetup.mel. You can
+copy and paste this script to your Maya installation directory (C:/Program
+Files/Autodesk/Maya2011/scripts/startup) to have the “ICE Scripts” menu in
+Maya or you can create a shortcut to the file in startup directory.
+
+If the tool is required to run as a desktop application, the source of the
+tool/software is placed in directory accessible to all of the users in the
+company and a batch file is created to run a tool. This batch file is made
+available to all of the users so that they can run the required tool from
+their local machine. 
+
